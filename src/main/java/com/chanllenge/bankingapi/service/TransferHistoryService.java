@@ -1,9 +1,7 @@
 package com.chanllenge.bankingapi.service;
 
 
-import com.chanllenge.bankingapi.dto.BalanceResponse;
 import com.chanllenge.bankingapi.dto.TransferHistoryResponse;
-import com.chanllenge.bankingapi.model.TransferHistory;
 import com.chanllenge.bankingapi.repository.TransferHistoryRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
