@@ -1,0 +1,13 @@
+package com.chanllenge.bankingapi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BankingApiChallengeApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(BankingApiChallengeApplication.class, args);
+    }
+
+}
