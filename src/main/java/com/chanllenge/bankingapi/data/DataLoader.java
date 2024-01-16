@@ -27,7 +27,6 @@ public class DataLoader implements CommandLineRunner {
                     new Customer(4L, "Georgina Hazel",new ArrayList<>())
             );
 
-            // Save customers to the database
             customerRepository.saveAll(customers);
 
             System.out.println("Data loaded successfully.");

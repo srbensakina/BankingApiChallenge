@@ -34,9 +34,8 @@ public class BankAccountService {
         if (optionalCustomer.isPresent()) {
             Customer customer = optionalCustomer.get();
 
-            BankAccount bankAccount = new BankAccount();
-            bankAccount.setBalance(createBankAccountRequest.getInitialDeposit());
-            bankAccount.setCustomer(customer);
+            BankAccount bankAccount = BankAccount.builder()
+                    .balance(createBankAccountRequest.getInitialDeposit()).customer(customer).build();
 
             customer.getBankAccounts().add(bankAccount);
 
@@ -67,7 +66,8 @@ public class BankAccountService {
             bankAccountRepository.save(bankAccountFrom);
             bankAccountRepository.save(bankAccountTo);
 
-            TransferHistory transferHistory = TransferHistory.builder().amount(amountTransferred).destinationAccount(bankAccountTo).sourceAccount(bankAccountFrom).transferDateTime(LocalDateTime.now()).build();
+            TransferHistory transferHistory = TransferHistory.builder()
+                    .amount(amountTransferred).destinationAccount(bankAccountTo).sourceAccount(bankAccountFrom).transferDateTime(LocalDateTime.now()).build();
 
             transferHistoryRepository.save(transferHistory);
         } else {
@@ -87,7 +87,7 @@ public class BankAccountService {
 
     public BankAccountDto getBankAccountById(Long bankAccountId) {
 
-      return   bankAccountRepository.findById(bankAccountId)
+        return bankAccountRepository.findById(bankAccountId)
                 .map(bankAccount -> new BankAccountDto(bankAccount.getId(), bankAccount.getBalance(), bankAccount.getCustomer().getId()))
                 .orElseThrow(() -> new EntityNotFoundException("No bank account with id:" + bankAccountId));
     }
