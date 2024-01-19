@@ -84,7 +84,6 @@ public class BankAccountService {
 
     }
 
-
     public BankAccountDto getBankAccountById(Long bankAccountId) {
 
         return bankAccountRepository.findById(bankAccountId)

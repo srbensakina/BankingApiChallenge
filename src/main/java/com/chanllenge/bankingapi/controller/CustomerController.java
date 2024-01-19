@@ -35,7 +35,7 @@ public class CustomerController {
 
 
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<?> getAllCustomers() {
         try {
             List<CustomerDto> customers = customerService.getAllCustomers();

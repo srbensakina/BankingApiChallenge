@@ -34,7 +34,6 @@ class TransferHistoryServiceTest {
 
         Long accountId = 1L;
 
-        // Mock source and destination accounts
         BankAccount sourceAccount1 = BankAccount.builder().id(10L).build();
         BankAccount destinationAccount1 = BankAccount.builder().id(20L).build();
 
